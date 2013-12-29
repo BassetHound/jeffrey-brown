@@ -6,6 +6,6 @@ bower: dist/assets/bower
 
 # Site build variables
 dev: dist
-prod: build
+prod: _site
 assets: assets
 assemble: src/templates
