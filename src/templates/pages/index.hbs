@@ -1,11 +1,80 @@
 ---
-title: home
-pageTitle: Jeff
-description: A front-end tool for generating static sites with Grunt, Assemble, Bower, Sass, Bourbon, Bourbon Neat, and Bourbon Bitters.
+title: Home
+pageTitle: Jeffrey Brown
+layout: blank.hbs
 ---
 
-{{#markdown}}
-```bash
-# Congrats! You made it. Time to start building.
-```
-{{/markdown}}
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width">
+
+  <title>{{capitalizeEach title}} | Jeffrey Brown</title>
+  <meta content="{{pageDescription}}" name="description" />
+
+  <!-- build:css {{assets}}/css/style.min.css -->
+
+  {{!-- BOWER PACKAGES --}}
+  <link rel="stylesheet" href="{{assets}}/bower/mfglabs-iconset/css/mfglabs_iconset.css" />
+
+  {{!-- LOCAL --}}
+  <link rel="stylesheet" href="{{assets}}/js/libs/prism/prism.css" />
+  <link rel="stylesheet" href="{{assets}}/css/style.css" />
+
+  <!-- endbuild -->
+
+  <!-- build:js {{assets}}/js/modernizr.min.js -->
+  <script src="{{assets}}/js/libs/modernizr-custom.js"></script>
+  <!-- endbuild -->
+</head>
+<body {{#if bodyClass}}class="{{bodyClass}}"{{/if}}>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <nav class="site-nav" role="navigation">
+      <a class="navbar-brand" href="/">
+        <img class="site-logo" src="http://placehold.it/100x100" alt="">
+      </a>
+
+      <div class="nav-links">
+          <a{{#is basename "index"}} class="active"{{/is}} href="/"><i class="icon-star_empty"></i> Home</a>
+          <a{{#is basename "test"}} class="active"{{/is}} href="/test"><i class="icon-eye"></i> Test</a>
+          <a class="nav-right" href="https://github.com/joshfry/boilerplate" target="_blank"><i class="icon-share"></i> GitHub</a>
+          <div class="mobile-menu"><i class="icon icon-reorder"></i></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main" role="main">
+  <div class="container">
+    {{> page-header }}
+    {{#markdown}}
+## Web Designer
+    {{/markdown}}
+  </div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <p class="copyright">&copy; {{now "%Y"}} | Jeffrey Brown</p>
+  </div>
+</footer>
+
+<!-- build:js {{assets}}/js/scripts.min.js -->
+
+{{!-- BOWER PACKAGES --}}
+<script src="{{assets}}/bower/jquery/jquery.js"></script>
+
+{{!-- LOCAL --}}
+<script src="{{assets}}/js/libs/prism/prism.js"></script>
+<script src="{{assets}}/js/components.cat.js"></script>
+<script src="{{assets}}/js/init.js"></script>
+
+<!-- endbuild -->
+
+{{> dev }}
+
+</body>
+</html>
